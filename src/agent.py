@@ -8,7 +8,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 load_dotenv()  # Load environment variables from .env file
 
 llm = ChatGoogleGenerativeAI(
-    model="gemini-2.5-flash",
+    model="gemini-3-pro-preview",
     temperature=0,
     max_tokens=None,
     timeout=None,
@@ -57,7 +57,7 @@ def get_self_aware_agent():
     return create_agent(
         model=llm,
         tools=[list_local_files, open_local_file, get_current_directory],
-        system_prompt="You are a helpful assistant, by accessing your local files, you can understand what you can do.",
+        system_prompt="You are a self-awareness agent, use tool to read REAME.md and the local files to understand the code running behind the scene",
     )
 
 
